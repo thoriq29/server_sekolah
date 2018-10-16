@@ -1,0 +1,40 @@
+{% extends 'backoffice/base.html' %}
+
+{% block content %}
+<div class="title">
+    <h1> Daftar Provinsi </h1>
+</div>
+<button type="button" onclick="location.href='{% url 'backoffice:province:add_province' %}'" class="btn btn-primary">Tambah</button>
+<table class='table'>
+  <thead class="thead-light">
+    <tr>
+        <th>Kode Provinsi</th>
+        <th>Nama Provinsi</th>
+        <th></th>
+    </tr>
+    </thead>
+    {% for provinsi in page.object_list %}
+    <tr>
+        <td><a href={% url 'backoffice:province:details' provinsi.id %}>{{ provinsi.kode_provinsi }}</td>
+        <td>{{ provinsi.province_name }}</td>
+        {% if provinsi.logo_provinsi%}
+        <td><img src='{{ provinsi.logo_provinsi.url }}' height="40px" width="40px"></td>
+        {% endif %}
+    </tr>
+    {% endfor%}
+</table>
+{% if page.has_other_pages %}
+    <ul class="pagination">
+        {% if page.has_previous %}
+            <li><a href="?page={{ page.previous_page_number }}">&laquo; Previous</a></li>
+        {% endif %}
+        <li>
+            Page {{ page.number }} of {{ page.paginator.num_pages }}
+        </li>
+        {% if page.has_next %}
+            <li><a href="?page={{ page.next_page_number }}">Next &raquo;</a></li>
+        {% endif %}
+    </ul>
+{% endif %}
+
+{% endblock %}

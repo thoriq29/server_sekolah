@@ -1,0 +1,16 @@
+.header {
+    background-color: #137D9E;
+    padding: 12px 0px;
+    margin-bottom: 42px;
+    display: table;
+    width: 100%;
+}
+.nav_wrappers {
+    display: table-cell;
+    vertical-align: middle;
+}
+.nav_wrapper {
+    float: right;
+    margin-top: -40px;  
+    
+}

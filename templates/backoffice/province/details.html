@@ -1,0 +1,8 @@
+{% extends 'backoffice/base.html' %}
+{% block content %}
+<button type="button" onclick="location.href='{% url 'backoffice:province:edit_province' province.id %}'" class="btn btn-primary">Edit</button>
+<div id='head'>
+<img src={{province.logo_provinsi.url}} height='100px' width='100px'>
+<h1>{{province.province_name}} </h1>
+</div>
+{% endblock content %}
